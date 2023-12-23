@@ -13,16 +13,23 @@ function App() {
   }
 
   function addItem(){
+    if(inputText!==''){
    const copyList = [...list]
    copyList.push(inputText)
    setList(copyList)
    setInputText('')
   }
+  else{
+    alert('Empty Task are not entered in the List')
+    setInputText('')
+  }
+}
 
   function deleteItem(index){
     const copyList = [...list]
     copyList.splice(index, 1)
     setList(copyList)
+    setButtonSwitch(false)
   }
 
   function editItem(index){
