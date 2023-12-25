@@ -1,83 +1,82 @@
-import "./App.css";
-import {useState} from 'react'
- 
+import './App.css';
+import { useState } from 'react';
+
 function App() {
   const [list, setList] = useState([])
   const [inputText, setInputText] = useState()
-  const [buttonMode , setButtonMode] = useState (false)
-  const [currrentIndex, setCurrentIndex] = useState()
+  const [buttonMode, setButtonMode] = useState(false)
+  const [currentIndex, setCurrentIndex] = useState()
 
   function updateText(e){
     const value = e.target.value
     setInputText(value)
-  }  
+  }
 
   function addItem(){
-    if (inputText!==""){
+    if(inputText !==''){
     const copyList = [...list]
     copyList.push(inputText)
     setList(copyList)
     setInputText('')
+    setButtonMode(false)
+    }
+    else{
+      alert('Empty Task are not Entered')
+      setInputText('')
+    }
   }
-  else{
-    alert('Empty Task Cannot be entered')
-    setInputText('')
-  }
- }
 
   function deleteItem(index){
     const copyList = [...list]
     copyList.splice(index, 1)
     setList(copyList)
-    setButtonMode(false)
     setInputText('')
+    setButtonMode(false)
   }
 
   function editItem(index){
-    //purpose: 
-    // 1. show the value in the list to the input
-    // 2. change the button from 'Add' to 'Update'
     const taskValue = list[index]
     setInputText(taskValue)
     setButtonMode(true)
     setCurrentIndex(index)
-  } 
+  }
 
-  function updateItem () {
-    // purpose:
-    // list[index] = newvalue
-    // change button back to add
-    // clear the input
+  function updateItem(index){
     const copyList = [...list]
-    copyList[currrentIndex] = inputText
+    copyList[currentIndex] = inputText
     setList(copyList)
-    setButtonMode(false)
     setInputText('')
-
+    setButtonMode(false)
+  }
+  
+  function deleteAll(index){
+    // add if condition to check if input is null how can we delete all entries
+    const copyList = [...list]
+    copyList.splice(index)
+    setList(copyList)
+    setInputText('')
+    setButtonMode(false)
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <h3>Todo-List</h3>
-        <div className="inputtask">
-          <input required onChange={updateText} placeholder="Enter a Task to Your List" value={inputText}></input>
-        </div>
-        <div className="buttonsect">
-        {buttonMode ? <button onClick={updateItem}>Update Task</button> : <button onClick={addItem}>Add Task</button>  }
-        </div>
-        <ul>
-        {list.map(function(item, index){
-          return <li>
-          {item}
-          {" "}
-          <button onClick={()=> editItem(index)}>Edit Task</button>
-          {" "}
-          <button onClick={()=> deleteItem(index)}>Delete Task</button>
-          </li>
-        })}
+      <h4>TodoList</h4>
+       <div className='inputUser'>
+       <input onChange={updateText} placeholder='Enter a Task' value={inputText}/> <br />
+       {buttonMode? <button onClick={updateItem}>Update Task</button>: <button onClick={addItem}>Add Task</button>}
+       <button onClick={deleteAll}>Delete All Entries in the List</button>
+
+       {list.map(function(item, index){
+        return <ul>
+        <li className = {currentIndex === index ? 'edit-mode':''}>{item}
+       <button onClick={()=> editItem(index)}>Edit Task</button>
+      <button onClick={()=> deleteItem(index)}>Delete Task</button>
+      </li>
         </ul>
-      </header> 
+       })}
+       </div>
+      </header>
     </div>
   );
 }
