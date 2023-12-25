@@ -13,6 +13,23 @@
   }
 }
 
+.inputUser input {
+  width: 400px;
+  padding: 10px;
+  border: 2px solid #000;
+  outline: 2px solid #fff;
+}
+
+.inputUser button {
+  margin: 10px;
+  width: 200px;
+  background-color: #282c34;
+  color: #fff;
+}
+.inputUser .edit-mode{
+  background-color: #61dafb;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -26,17 +43,6 @@
 
 .App-link {
   color: #61dafb;
-}
-.inputtask input{
-  padding: 15px;
-  width: 400px;
-}
-.buttonsect button{
-  padding: 10px;
-  margin: 15px;
-}
-li{
-  font-weight: 600;
 }
 
 @keyframes App-logo-spin {
