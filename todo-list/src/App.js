@@ -21,7 +21,7 @@ function App() {
     setButtonMode(false)
     }
     else{
-      alert('Empty Task are not Entered')
+      alert('Empty Task cannot be Entered')
       setInputText('')
     }
   }
