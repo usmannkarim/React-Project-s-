@@ -1,0 +1,119 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.fbPost {
+  margin: 30px;
+}
+.postHeading {
+  line-height: 0;
+  text-align: left;
+}
+.postContent .title{
+  font-size: 20px;
+}
+.postContent .postText{
+  font-size: 16px;
+  line-height: 1;
+}
+.postContent {
+  border: 2px solid #000;
+  width: 500px;
+  display: inline-block;
+  padding: 10px 15px;
+  box-shadow: 1px 8px 8px 3px #000;
+  border-radius: 5px;
+}
+.postHeader {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.postImg > img{
+  width: 50px;
+  height: 50px;
+}
+.sponsoredText img,
+.btnSect img {
+  height: 15px;
+  width: 15px;
+}
+.sponsoredText {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 16px;
+}
+.postMidContent {
+  text-align: left;
+  padding-top: 20px;
+}
+.postBottomContent {
+    padding: 10px 0;
+}
+.btnSect  {
+  display: flex;
+}
+
+
+.btn {
+  position: relative;
+}
+
+.emoji-container {
+  display: none;
+  position: absolute;
+  /* Adjust the position as required */
+  /* top: 0; */
+  left: 0;
+  bottom: -20;
+  width: 100%;
+  max-width: 500px;
+}
+.btn:hover .emoji-container {
+  display: block;
+}
+.emoji-container span {
+  display: inline-block;
+  margin: 0px;
+}
+
+
+
+.btnSect button {
+  width: 100%;
+  padding: 5px;
+}
+.grid-container{
+  border: 1px solid #000;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: #000;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
